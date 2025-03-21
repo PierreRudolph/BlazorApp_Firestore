@@ -1,0 +1,28 @@
+﻿@using BlazorApp_Firestore.Dialogs.DialogBase
+<DialogBase>
+    <EditForm Model="@_customer" @ref=@_editForm OnValidSubmit=@(()=>AddUser())>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div>
+            <label for="first-name">Vorname</label>
+            <InputText @bind-Value=_customer.FirstName id="first-name"></InputText>
+            <ValidationMessage For="()=> _customer.FirstName" />
+        </div>
+        <div>
+            <label for="last-name">Nachname</label>
+            <InputText @bind-Value=_customer.LastName id="last-name"></InputText>
+            <ValidationMessage For="()=> _customer.LastName" />
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <InputText @bind-Value=_customer.Email id="email"></InputText>
+            <ValidationMessage For="()=> _customer.Email" />
+        </div>
+        <div>
+            <label for="phone">Telefonnummer</label>
+            <InputText @bind-value=_customer.Phone id="phone" />
+            <ValidationMessage For="()=> _customer.Phone" />
+        </div>
+        <button type="submit">Save</button>
+    </EditForm>
+</DialogBase>

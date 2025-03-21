@@ -1,0 +1,64 @@
+﻿@page "/users"
+@using BlazorApp_Firestore.Entities
+
+<div class="page_wrapper">
+
+    <h3>Nuter Verwaltung</h3>
+
+    <div class="flex_row_center_gap4">
+        <input role="form" required @bind-value=@_userNameInput />
+        <input role="form" required @bind-value=@_userEmailInput />
+        <button role="form" type="submit" @onclick=@(()=>AddUser())>Nutzer hinzufügen</button>
+    </div>
+
+    <button @onclick=@(()=> GetUsers())>Nutzer laden</button>
+
+    <EditForm Model="@_customer" OnValidSubmit=@(()=>AddUser())>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label for="first-name">Vorname</label>
+            <InputText @bind-Value=_customer.FirstName id="first-name"></InputText>
+            <ValidationMessage For="()=> _customer.FirstName" />
+        </div>
+
+        <div>
+            <label for="last-name">Nachname</label>
+            <InputText @bind-Value=_customer.LastName id="last-name"></InputText>
+            <ValidationMessage For="()=> _customer.LastName" />
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <InputText @bind-Value=_customer.Email id="email"></InputText>
+            <ValidationMessage For="()=> _customer.Email" />
+        </div>
+
+        <div>
+            <label for="phone">Telefonnummer</label>
+            <InputText @bind-value=_customer.Phone id="phone" />
+            <ValidationMessage For="()=> _customer.Phone" />
+        </div>
+        <button type="submit">Save</button>
+    </EditForm>
+
+    @if (list != null && list.Count > 0)
+    {
+        <ul>
+           @*  @for (var i = 0; i < list.Count; i++)
+            {
+                object? userName = list[i]["userName"];
+                string userNmaeString = userName.ToString() ?? "";
+                string userEmail = list[i]["userEmail"]?.ToString() ?? "";
+                <li> @(!string.IsNullOrWhiteSpace(userNmaeString) ? userNmaeString : "No Name avaiable!") @(!string.IsNullOrWhiteSpace(userEmail) ? userEmail : "No Email avaiable!")</li>
+                <li>@list[i]["userName"]</li>
+            } *@
+            @foreach (var dic in @list)
+            {
+                <li>@dic["firstName"] @dic["lastName"] @dic["email"]</li>
+            }
+        </ul>
+
+    }
+</div>

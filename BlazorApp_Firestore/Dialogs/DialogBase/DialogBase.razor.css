@@ -1,0 +1,16 @@
+/* #region Dialog */
+
+.overlay-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background: radial-gradient(circle, rgba(255,255,255,0) 30%, rgba(255,255,255,0.4) 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* #endregion */
