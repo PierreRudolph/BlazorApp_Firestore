@@ -12,12 +12,7 @@ import {
 // Firebase configuration details
 // replace this configuration with your own configuration details
 const firebaseConfig = {
-    apiKey: "AIzaSyCkdQgGr5NxJpzBdHsCKPEupktZWaHwsIY",
-    authDomain: "blazor-user-app.firebaseapp.com",
-    projectId: "blazor-user-app",
-    storageBucket: "blazor-user-app.firebasestorage.app",
-    messagingSenderId: "245766229073",
-    appId: "1:245766229073:web:38ecc483e6cbffb41e7c70"
+
 };
 
 
